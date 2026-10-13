@@ -1,0 +1,369 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2937;
+  --primary-color: #176650;
+  --primary-hover: #124e3d;
+  --danger-color: #dc2626;
+  --danger-hover: #b91c1c;
+  --success-color: #16a34a;
+  --border-color: #e5e7eb;
+}
+
+body {
+  margin: 0;
+  background: #f7faf9;
+  line-height: 1.5;
+}
+
+.container {
+  width: min(1060px, 94%);
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 24px 0;
+  background: var(--primary-color);
+  color: white;
+}
+
+.site-header h1 {
+  margin: 0 0 6px;
+}
+
+.site-header p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Thẻ khung bọc các phần chính */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.required {
+  color: var(--danger-color);
+}
+
+.form-group input,
+.form-group select,
+.search-box input,
+.status-filter select {
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.search-box input:focus,
+.status-filter select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(23, 102, 80, 0.15);
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.error-message {
+  color: var(--danger-color);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  min-height: 18px;
+}
+
+/* Nút bấm */
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  font-size: 0.95rem;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-hover);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+/* Thanh tìm kiếm & lọc */
+.filter-controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-box input {
+  width: 100%;
+}
+
+.status-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Danh sách công việc */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background-color: #f9fafb;
+  border: 1px solid var(--border-color);
+  border-left: 5px solid #9ca3af;
+  border-radius: 6px;
+  gap: 12px;
+  transition: transform 0.15s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Phân biệt màu sắc theo mức độ ưu tiên */
+.task-item.priority-cao {
+  border-left-color: #ef4444;
+}
+
+.task-item.priority-trung-binh {
+  border-left-color: #f59e0b;
+}
+
+.task-item.priority-thap {
+  border-left-color: #3b82f6;
+}
+
+/* Đã hoàn thành */
+.task-item.done {
+  opacity: 0.65;
+  background-color: #f3f4f6;
+}
+
+.task-item.done .task-title {
+  text-decoration: line-through;
+}
+
+.task-info {
+  flex: 1;
+}
+
+.task-title {
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.task-meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Badge chung */
+.badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* Badge Mức ưu tiên */
+.badge-cao {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.badge-trung-binh {
+  background: #fef3c7;
+  color: #92400e;
+}
+.badge-thap {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+/* Badge Trạng thái */
+.badge-done {
+  background: #dcfce7;
+  color: #15803d;
+}
+.badge-pending {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+/* Badge trạng thái Quá hạn */
+.badge-overdue {
+  background-color: #fee2e2;
+  color: #dc2626;
+  font-weight: bold;
+}
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.empty-message {
+  text-align: center;
+  color: #6b7280;
+  padding: 20px 0;
+}
+
+/* Toast Notification Styling */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background-color: #1f2937;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.toast.toast-success {
+  background-color: #16a34a;
+}
+
+.toast.toast-danger {
+  background-color: #dc2626;
+}
+
+/* Responsive cho màn hình điện thoại (khoảng 375px) */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .status-filter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+
+  .toast {
+    left: 20px;
+    right: 20px;
+    text-align: center;
+  }
+}
+
+.site-footer {
+  margin-top: 28px;
+  padding: 20px;
+  text-align: center;
+  background-color: #e5e7eb;
+  font-weight: 500;
+}
